@@ -58,15 +58,15 @@ agent = create_deep_agent(
     subagents=[research_sub_agent]
 )
 
-result = agent.invoke(
-    {
-        "messages": [
-            {
-                "role": "user",
-                "context": "research context engineering approaches used to build AI agents"
-            }
-        ]
-    }
-)
+# result = agent.invoke(
+#     {
+#         "messages": [
+#             {
+#                 "role": "user",
+#                 "context": "research context engineering approaches used to build AI agents"
+#             }
+#         ]
+#     }
+# )
 
-file_content = file_data_to_string(result["files"]['/final_report.md'])
+# file_content = file_data_to_string(result["files"]['/final_report.md'])

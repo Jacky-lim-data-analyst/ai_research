@@ -26,24 +26,25 @@ if __name__ == "__main__":
     # collection = chromadb_handler.get_collection(collection_name=col_name_get)
     # print(f"\n\n{collection}\n")
 
-    # col_name_del = "test"
+    # col_name_del = "research"
     # chromadb_handler.delete_collection(collection_name=col_name_del)
     # print(f"collection {col_name_del} deleted!")
 
     # query
     # res = collection.query(query_texts=["LangGraph"])
     # print(res)
+    collection_name = "artemis_space"
     client = chromadb.HttpClient(host="192.168.0.162", port=9000, ssl=False)
     embeddings = OllamaEmbeddings(
         base_url="http://192.168.0.162:11434",
         model="embeddinggemma:latest"
     )
     vector_store = Chroma(
-        collection_name="research",
+        collection_name=collection_name,
         client=client,
         embedding_function=embeddings
     )
-    retrieval_res = vector_store.similarity_search("LangGraph", k=2)
+    retrieval_res = vector_store.similarity_search("moon", k=2)
     if retrieval_res:
         for doc in retrieval_res:
             print(f"* {doc.page_content} [{doc.metadata}]")

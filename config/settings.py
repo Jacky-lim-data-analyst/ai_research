@@ -1,6 +1,6 @@
 # settings with environment variables
 from pydantic_settings import BaseSettings, SettingsConfigDict
-from pydantic import Field, SecretStr
+from pydantic import SecretStr
 
 class AppSettings(BaseSettings):
     """Basic application settings loaded from environment variables."""
@@ -8,6 +8,7 @@ class AppSettings(BaseSettings):
     groq_api_key: SecretStr
     openrouter_api_key: SecretStr
     gemini_api_key: SecretStr
+    zhipu_api_key: SecretStr
     tavily_api_key: SecretStr
 
     # ollama

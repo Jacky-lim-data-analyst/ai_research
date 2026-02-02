@@ -85,7 +85,7 @@ class ResearchEvaluator:
                  model_name: str = "qwen3:4b", 
                  temperature: float = 0.1,
                  max_search_iterations: int = 5,
-                 relevance_threshold: float = 0.7,
+                 relevance_threshold: float = 0.8,
                  embedding_model: str = "embeddinggemma:latest",
                  chroma_collection_name: str = "research",
                  chroma_domain: str = "192.168.0.162",
@@ -254,7 +254,7 @@ if __name__ == "__main__":
         "subquestion": "What are the core benefits of using LangGraph?",
         "current_query": "LangGraph benefits",
         "new_search_results": [],
-        "iteration": 0,
+        "iteration": 1,
         "max_iterations": 2,
         "evaluation_history": []
     }
