@@ -44,12 +44,13 @@ if __name__ == "__main__":
         client=client,
         embedding_function=embeddings
     )
-    retrieval_res = vector_store.similarity_search("moon", k=2)
-    if retrieval_res:
-        for doc in retrieval_res:
-            print(f"* {doc.page_content} [{doc.metadata}]")
-    else:
-        print("No retrieval data")
+    retrieval_res = vector_store.similarity_search_with_score("moon", k=2)
+    print(retrieval_res)
+    # if retrieval_res:
+    #     for doc, score in retrieval_res:
+    #         print(f"* [SIM: {score}]{doc.page_content} [{doc.metadata}]")
+    # else:
+    #     print("No retrieval data")
     # print(vector_store.get())
     # collection = client.get_or_create_collection(
     #     name="research",

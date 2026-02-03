@@ -4,12 +4,12 @@ context management
 """
 
 from datetime import datetime
-import os
-from config.settings import AppSettings
 
+from config.settings import AppSettings
+import os
+# from langchain_ollama import ChatOllama
 from langchain_google_genai import ChatGoogleGenerativeAI
 from deepagents import create_deep_agent
-from deepagents.backends.utils import file_data_to_string
 
 from config.prompts import (
     RESEARCHER_INSTRUCTIONS,
@@ -19,7 +19,7 @@ from config.prompts import (
 from tools.search_tools import think_tool, chroma_search
 
 # Limits concurrent research units and iterations
-max_concurrent_research_units = 3
+max_concurrent_research_units = 2
 max_researcher_iterations = 3
 
 # get current date
@@ -45,10 +45,13 @@ research_sub_agent = {
     "tools": [chroma_search, think_tool],
 }
 
-# Gemini model
+# Ollama model
 settings = AppSettings()
 os.environ["GEMINI_API_KEY"] = settings.gemini_api_key.get_secret_value()
-model = ChatGoogleGenerativeAI(model="gemini-3-flash-preview", temperature=0.0)
+model = ChatGoogleGenerativeAI(
+    model="gemini-2.5-flash",
+    temperature=0.0
+)
 
 # create deep agent
 agent = create_deep_agent(

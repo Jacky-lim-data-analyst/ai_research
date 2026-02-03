@@ -78,7 +78,7 @@ class ResearchState(TypedDict):
 
 # --- Evaluator module ---
 class ResearchEvaluator:
-    WEB_SEARCH_PROVIDERS = {"duckduckgo", "searchxng", "whoogle"}
+    WEB_SEARCH_PROVIDERS = {"duckduckgo", "searxng", "whoogle"}
 
     def __init__(self, 
                  host: str = "http://192.168.0.162:11434",
